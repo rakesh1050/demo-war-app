@@ -28,10 +28,8 @@ pipeline {
         }
         stage("Docker Run"){
             steps{
-                sh """
-                docker container rm -f $(docker container ls -aq)
-                docker container run -itd -p 8090:8080 rakesh1050/sampleapp
-                """
+                sh "docker container rm -f $(docker container ls -aq)"
+                sh "docker container run -itd -p 8090:8080 rakesh1050/sampleapp"
             }
         }
     }
